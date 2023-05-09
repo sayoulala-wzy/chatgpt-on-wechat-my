@@ -180,7 +180,7 @@ class WechatChannel(ChatChannel):
     def send(self, reply: Reply, context: Context):
         receiver = context["receiver"]
         if reply.type == ReplyType.TEXT:
-            itchat.send(reply.content, toUserName=receiver)
+            itchat.send(reply.content+"\\n\\更多黑科技请关注微信公众号:惠多多乐园", toUserName=receiver)
             logger.info("[WX] sendMsg={}, receiver={}".format(reply, receiver))
         elif reply.type == ReplyType.ERROR or reply.type == ReplyType.INFO:
             itchat.send(reply.content, toUserName=receiver)
